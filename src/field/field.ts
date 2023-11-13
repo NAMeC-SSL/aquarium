@@ -14,20 +14,20 @@ import type { Annotation } from "../types/annotation"
 import { AnnotationKind } from "../types/annotation"
 
 function drawGoal(context: CanvasRenderingContext2D, goal: Goal) {
-  let factor = goal.topLeftPosition[0] > 0 ? -1 : 1
+  let factor = goal.area.topLeft[0] > 0 ? -1 : 1
   context.strokeRect(
-    goal.topLeftPosition[0],
-    goal.topLeftPosition[1],
+    goal.area.topLeft[0],
+    goal.area.topLeft[1],
     factor * goal.depth,
     factor * goal.width,
   )
 }
 
 function drawPenalty(context: CanvasRenderingContext2D, penalty: Penalty) {
-  let factor = penalty.topLeftPosition[0] > 0 ? -1 : 1
+  let factor = penalty.area.topLeft[0] > 0 ? -1 : 1
   context.strokeRect(
-    penalty.topLeftPosition[0],
-    penalty.topLeftPosition[1],
+    penalty.area.topLeft[0],
+    penalty.area.topLeft[1],
     factor * penalty.depth,
     factor * penalty.width,
   )
@@ -149,7 +149,7 @@ export function drawPoint(context: CanvasRenderingContext2D, point: Point) {
 }
 
 export function drawRect(context: CanvasRenderingContext2D, rect: Rectangle) {
-  context.rect(rect.position[0], rect.position[1], rect.width, rect.height)
+  context.rect(rect.topLeft[0], rect.topLeft[1], rect.width, rect.height)
 }
 export function drawAnnotation(
   context: CanvasRenderingContext2D,

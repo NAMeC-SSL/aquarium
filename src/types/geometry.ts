@@ -1,7 +1,7 @@
 export type Rectangle = {
   width: number
   height: number
-  position: [number, number]
+  topLeft: [number, number]
 }
 
 export type Point = [number, number]
@@ -23,7 +23,7 @@ export type Circle = {
 type GoalOrPenalty = {
   depth: number
   width: number
-  topLeftPosition: [number, number]
+  area: Rectangle
 }
 
 export type Goal = GoalOrPenalty

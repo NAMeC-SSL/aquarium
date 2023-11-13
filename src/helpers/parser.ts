@@ -13,6 +13,7 @@ export const convertArrayToObject = <T>(array: [number | string, T][]) => {
 }
 
 export function parseWorld(msg: WorldMessage): World {
+  console.log(msg)
   return {
     ...msg,
     alliesBot: convertArrayToObject(msg.alliesBot),
